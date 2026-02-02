@@ -1,1 +1,89 @@
 
+{
+  "version": "cn-insurance-aids-v1.0",
+  "rules": [
+    {
+      "id": "R6-01",
+      "severity": "high",
+      "type": "must_have_any",
+      "title": "应明示宣传的是保险产品",
+      "patterns_any": ["保险产品"],
+      "instruction": "在醒目位置明确“保险产品”属性，避免以其他金融产品名义宣传。"
+    },
+    {
+      "id": "R6-02",
+      "severity": "high",
+      "type": "forbidden_patterns",
+      "title": "不得暗示监管背书或保证",
+      "patterns": ["监管.*(保证|背书|担保)", "(银保监|保监|监管).*保证", "备案.*保证", "审核.*保证"],
+      "instruction": "删除暗示监管背书/保证的表述，改为客观事实描述。"
+    },
+    {
+      "id": "R6-05",
+      "severity": "high",
+      "type": "forbidden_patterns",
+      "title": "短期健康险不得使用易混淆长期险词句",
+      "patterns": ["自动续保", "承诺续保", "终身限额"],
+      "instruction": "短期健康险宣传材料中删除上述词句；如涉及续保责任，应明确“不保证续保”。"
+    },
+    {
+      "id": "R6-09",
+      "severity": "high",
+      "type": "forbidden_patterns",
+      "title": "不得以理财/储蓄等表述宣传保险产品",
+      "patterns": [
+        "利息", "预期收益", "投资计划", "本金", "保本", "返本", "报销", "理财",
+        "避税", "储蓄", "存款", "增值", "保息", "活期账户", "安全稳健", "复利滚存",
+        "抵御通货膨胀", "避债"
+      ],
+      "instruction": "删除或改写为保险条款口径，避免将保险与理财/存款收益等混同。"
+    },
+    {
+      "id": "R6-11",
+      "severity": "high",
+      "type": "forbidden_patterns",
+      "title": "不得承诺保证收益或保证性承诺",
+      "patterns": ["保证收益", "承诺收益", "确定收益", "稳赚", "零风险", "无风险", "百分百"],
+      "instruction": "删除承诺性表述；如需说明演示，应按信息披露规则口径并充分揭示风险。"
+    },
+    {
+      "id": "R6-18",
+      "severity": "medium",
+      "type": "forbidden_patterns",
+      "title": "禁止使用绝对化/最高级用语",
+      "patterns": ["国家级", "最高级", "最佳", "第一", "唯一", "顶级", "全网最"],
+      "instruction": "删除绝对化用语，改为可证实的客观描述并保留依据。"
+    },
+    {
+      "id": "R7-01",
+      "severity": "medium",
+      "type": "must_have_any",
+      "title": "应载明保险产品名称（完整准确）",
+      "patterns_any": ["产品名称", "保险产品名称"],
+      "instruction": "在醒目位置写明保险产品全称（不要只用简称/昵称）。"
+    },
+    {
+      "id": "R7-03",
+      "severity": "medium",
+      "type": "must_have_all",
+      "title": "应载明免责声明（以条款为准/仅供参考/系假设）",
+      "patterns_all": ["以", "条款", "为准"],
+      "patterns_any": ["仅供参考", "系假设"],
+      "instruction": "补齐免责声明：如“本简介/案例仅供参考/系假设，具体以《××条款/产品说明书》为准”。"
+    },
+    {
+      "id": "R7-07",
+      "severity": "high",
+      "type": "must_have_if_contains",
+      "title": "短期健康险如提及续保应明确“不保证续保”",
+      "if_patterns_any": ["续保"],
+      "must_patterns_any": ["不保证续保"],
+      "instruction": "如涉及续保描述，必须明确“不保证续保”。"
+    }
+  ],
+  "sources": [
+    "你提供的《第六条/第七条》内控规则",
+    "银保监办发〔2021〕7号：短期健康保险不得使用“自动续保/承诺续保/终身限额”等",
+    "《人身保险产品信息披露管理办法》及相关披露规则（用于提示“以条款为准/演示口径”等）"
+  ]
+}
